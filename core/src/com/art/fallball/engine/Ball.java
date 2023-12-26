@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Pool;
-import com.sun.tools.javac.util.Pair;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,7 +27,10 @@ public class Ball implements Pool.Poolable {
     @Setter
     private Circle collider;
 
+    @Getter
+    private int id;
     private boolean manualControl = false;
+
 
 
     public Ball () {
@@ -40,6 +42,8 @@ public class Ball implements Pool.Poolable {
         velocity = new Vector2();
 
         mass = radius * 0.5f;
+
+        id = Params.ballCounter++;
     }
 
 
@@ -86,6 +90,7 @@ public class Ball implements Pool.Poolable {
 
     public void setPosition (float x, float y) {
         this.pos.set(x, y);
+        this.collider.setPosition(x, y);
     }
 
 

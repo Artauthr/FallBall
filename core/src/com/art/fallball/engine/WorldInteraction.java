@@ -69,9 +69,7 @@ public class WorldInteraction implements InputProcessor {
             worldRef.flushMouseRecording();
             currentSelected = null;
         }
-        if (button == Input.Buttons.RIGHT) {
-            worldRef.spawnBallOnClick(screenX, Gdx.graphics.getHeight() - screenY);
-        }
+
         return false;
     }
 
